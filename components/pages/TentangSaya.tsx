@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   Select,
@@ -10,7 +10,7 @@ import {
 import tentangSaya, { Question } from "@/const/tentang-saya";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { usePage } from "@/hooks/usePage";
 
@@ -28,11 +28,14 @@ const defaultFormValues: (string | null)[] = [
 export default function TentangSaya() {
   const { setPage } = usePage((state) => state);
 
-  const tetangSayaLS = localStorage.getItem("tentang-saya");
+  const [form, setForm] = useState<(string | null)[]>(defaultFormValues);
 
-  const [form, setForm] = useState<(string | null)[]>(
-    tetangSayaLS ? JSON.parse(tetangSayaLS) : defaultFormValues
-  );
+  useEffect(() => {
+    const tetangSayaLS = localStorage.getItem("tentang-saya");
+    if (tetangSayaLS) {
+      setForm(JSON.parse(tetangSayaLS));
+    }
+  }, []);
 
   function onFormChange(newValue: string, index: number) {
     const newForm = [...form];

@@ -3,6 +3,7 @@
 // import Home from "@/components/pages/Home";
 import { usePage } from "@/hooks/usePage";
 import dynamic from "next/dynamic";
+import { useEffect } from "react";
 
 const Home = dynamic(() => import("@/components/pages/Home"), {
   ssr: false,
@@ -41,15 +42,19 @@ const TentangSaya = dynamic(() => import("@/components/pages/TentangSaya"), {
   ssr: false,
 });
 export const ContentBuilder = () => {
-  const { page } = usePage((state) => state);
-  const alreadyOnBoarding: boolean =
-    localStorage.getItem("onboarding") === "true";
+  const { page, setPage } = usePage((state) => state);
+  
+  useEffect(() => {
+    const alreadyOnBoarding: boolean = localStorage.getItem("onboarding") === "true";
 
-  if (!!!alreadyOnBoarding) {
-    return <OnBoarding />;
-  }
+    if (!!!alreadyOnBoarding) {
+      setPage("on-boarding");
+    }
+  }, [])
 
   switch (page) {
+    case "on-boarding":
+      return <OnBoarding />;
     case "home":
       return <Home />;
 
