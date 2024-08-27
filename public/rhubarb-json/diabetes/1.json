@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "soundFile": "C:\\Users\\Bilhakki\\Developer\\Project\\ECA DM\\transformer-nodejs\\wav\\diabetes\\1.wav",
+    "duration": 3.18
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.06, "value": "X" },
+    { "start": 0.06, "end": 0.52, "value": "C" },
+    { "start": 0.52, "end": 0.64, "value": "X" },
+    { "start": 0.64, "end": 0.72, "value": "E" },
+    { "start": 0.72, "end": 0.79, "value": "C" },
+    { "start": 0.79, "end": 0.93, "value": "D" },
+    { "start": 0.93, "end": 1.21, "value": "B" },
+    { "start": 1.21, "end": 1.28, "value": "D" },
+    { "start": 1.28, "end": 1.39, "value": "A" },
+    { "start": 1.39, "end": 1.44, "value": "F" },
+    { "start": 1.44, "end": 2.05, "value": "B" },
+    { "start": 2.05, "end": 2.26, "value": "D" },
+    { "start": 2.26, "end": 2.32, "value": "C" },
+    { "start": 2.32, "end": 2.56, "value": "B" },
+    { "start": 2.56, "end": 2.63, "value": "G" },
+    { "start": 2.63, "end": 2.84, "value": "B" },
+    { "start": 2.84, "end": 3.18, "value": "X" }
+  ]
+}

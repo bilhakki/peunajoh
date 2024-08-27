@@ -1,0 +1,25 @@
+{
+  "metadata": {
+    "soundFile": "C:\\Users\\Bilhakki\\Developer\\Project\\ECA DM\\transformer-nodejs\\wav\\rencana-makan\\3.wav",
+    "duration": 2.27
+  },
+  "mouthCues": [
+    { "start": 0.00, "end": 0.06, "value": "X" },
+    { "start": 0.06, "end": 0.12, "value": "B" },
+    { "start": 0.12, "end": 0.17, "value": "E" },
+    { "start": 0.17, "end": 0.24, "value": "B" },
+    { "start": 0.24, "end": 0.31, "value": "E" },
+    { "start": 0.31, "end": 0.39, "value": "A" },
+    { "start": 0.39, "end": 0.84, "value": "C" },
+    { "start": 0.84, "end": 0.86, "value": "A" },
+    { "start": 0.86, "end": 0.93, "value": "B" },
+    { "start": 0.93, "end": 1.05, "value": "A" },
+    { "start": 1.05, "end": 1.09, "value": "B" },
+    { "start": 1.09, "end": 1.17, "value": "A" },
+    { "start": 1.17, "end": 1.24, "value": "D" },
+    { "start": 1.24, "end": 1.79, "value": "B" },
+    { "start": 1.79, "end": 1.86, "value": "C" },
+    { "start": 1.86, "end": 2.00, "value": "B" },
+    { "start": 2.00, "end": 2.27, "value": "X" }
+  ]
+}
