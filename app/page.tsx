@@ -17,7 +17,7 @@ export default function page() {
       {/* content container */}
       <div
         style={{
-          height: "75dvh",
+          height: "55dvh",
           // background: "yellow",
           // position: "relative",
         }}
@@ -27,7 +27,7 @@ export default function page() {
       {/* avatar container */}
       <div
         style={{
-          height: "25dvh",
+          height: "45dvh",
           // background: "red",
           position: "relative",
         }}

@@ -48,12 +48,12 @@ export default function TentangSaya() {
       <div className="bg-white flex-1 rounded-lg text-sm p-4 pb-0 overflow-y-auto">
         <ol className="list-decimal pl-4 space-y-4 pb-6">
           {tentangSaya.map((item, index) => {
-            const key = `input-${index}`;
+            const elKey = `input-${index}`;
             return (
-              <li key={key}>
+              <li key={elKey}>
                 <GetForm
                   item={item}
-                  key={key}
+                  elKey={elKey}
                   index={index}
                   onFormChange={onFormChange}
                   defaultValue={form[index]}
@@ -75,13 +75,13 @@ export default function TentangSaya() {
 
 function GetForm({
   item,
-  key,
+  elKey,
   index,
   defaultValue,
   onFormChange,
 }: {
   item: Question;
-  key: string;
+  elKey: string;
   index: number;
   defaultValue: string | null;
   onFormChange: (newValue: string, index: number) => void;
@@ -89,11 +89,11 @@ function GetForm({
   if (item.inputType === "number" || item.inputType === "string") {
     return (
       <>
-        <Label htmlFor={key}>{item.question}</Label>
+        <Label htmlFor={elKey}>{item.question}</Label>
         <Input
           className="border-neutral-500"
           type={item.inputType}
-          id={key}
+          id={elKey}
           onChange={(e) => onFormChange(e.target.value, index)}
           defaultValue={defaultValue || item.defaultValue}
         />
@@ -102,9 +102,9 @@ function GetForm({
   } else if (item.inputType === "option") {
     return (
       <>
-        <Label htmlFor={key}>{item.question}</Label>
+        <Label htmlFor={elKey}>{item.question}</Label>
         <Select onValueChange={(value) => onFormChange(value, index)}>
-          <SelectTrigger id={key}>
+          <SelectTrigger id={elKey}>
             <SelectValue
               placeholder={item.options.filter((item) => item === defaultValue)}
             />

@@ -111,7 +111,7 @@ interface AvatarProps {
 
 export function Avatar(props: AvatarProps) {
   const { nodes, materials, scene } = useGLTF(
-    "/models/doctor-model.glb"
+    "/models/doctor-model.glb?v=1"
   ) as any;
 
   // const { message, onMessagePlayed, chat } = useChat();
@@ -127,7 +127,6 @@ export function Avatar(props: AvatarProps) {
   // const [audio, setAudio] = useState<HTMLAudioElement | undefined>();
 
   // useEffect(() => {
-  //   console.log(message);
   //   if (!message) {
   //     setAnimation("Breathing Idle");
   //     return;
@@ -145,7 +144,6 @@ export function Avatar(props: AvatarProps) {
 
   useEffect(() => {
     if (!path) return;
-    console.log("path", `/sounds/${path}.mp3`);
 
     // Buat instance Audio baru dan simpan dalam ref
     const audio = new Audio(`/sounds/${path}.mp3`);
@@ -431,7 +429,7 @@ export function Avatar(props: AvatarProps) {
       position={[0, -2.4, 0]}
       scale={1.6}
     >
-      <primitive object={nodes.Hips} />
+       <primitive object={nodes.Hips} />
       <skinnedMesh
         name="EyeLeft"
         geometry={nodes.EyeLeft.geometry}
@@ -470,6 +468,16 @@ export function Avatar(props: AvatarProps) {
         skeleton={nodes.Wolf3D_Hair.skeleton}
       />
       <skinnedMesh
+        geometry={nodes.Wolf3D_Glasses.geometry}
+        material={materials.Wolf3D_Glasses}
+        skeleton={nodes.Wolf3D_Glasses.skeleton}
+      />
+      <skinnedMesh
+        geometry={nodes.Wolf3D_Body.geometry}
+        material={materials.Wolf3D_Body}
+        skeleton={nodes.Wolf3D_Body.skeleton}
+      />
+      <skinnedMesh
         geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
         material={materials.Wolf3D_Outfit_Bottom}
         skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
@@ -488,5 +496,5 @@ export function Avatar(props: AvatarProps) {
   );
 }
 
-useGLTF.preload("/models/doctor-model.glb");
+useGLTF.preload("/models/doctor-model.glb?v=1");
 useGLTF.preload("/models/doctor-animations.glb");

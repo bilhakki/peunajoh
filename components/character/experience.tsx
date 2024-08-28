@@ -1,7 +1,12 @@
 "use client";
 import { Avatar } from "@/components/character/avatar";
 // import { useChat } from "@/hooks/useChat";
-import { CameraControls, Environment, PerspectiveCamera, Text } from "@react-three/drei";
+import {
+  CameraControls,
+  Environment,
+  PerspectiveCamera,
+  Text,
+} from "@react-three/drei";
 import { LegacyRef, Suspense, useEffect, useRef, useState } from "react";
 
 const Dots = (props: any) => {
@@ -45,7 +50,6 @@ export const Experience = () => {
   //   }
   // }, []);
 
-
   return (
     <>
       <Avatar />
@@ -56,14 +60,14 @@ export const Experience = () => {
           // cameraControls.current?.setLookAt(0, 1.5, 1.5, 0, 1.5, 0, true);
         }}
       /> */}
- 
-       {/* <PerspectiveCamera
+
+      {/* <PerspectiveCamera
         makeDefault
         position={[0, 1, 4]}
         // fov={70}
         // zoom={1}
       /> */}
-      <Environment preset="sunset" />
+      <Environment preset="apartment" />
       <Suspense>
         <Dots position-y={1.75} position-x={-0.02} />
       </Suspense>

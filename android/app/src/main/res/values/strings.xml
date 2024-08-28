@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">peunajoh</string>
+    <string name="title_activity_main">peunajoh</string>
+    <string name="package_name">com.peunajoh.id</string>
+    <string name="custom_url_scheme">com.peunajoh.id</string>
+</resources>
