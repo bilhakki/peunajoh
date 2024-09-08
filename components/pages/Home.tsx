@@ -33,38 +33,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* <div className="flex gap-2 mx-auto">
-        <Button
-          variant="outline"
-          size="sm"
-          // className="ml-auto"
-          onClick={() => setPage("porsi-makan")}
-        >
-          Porsi Makan
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setPage("rencana-makan")}
-        >
-          Rencana Makan
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setPage("asupan-karbohidrat")}
-        >
-          Asupan Karbohidrat
-        </Button>
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => setPage("kualitas-makanan")}
-        >
-          Kualitas Makanan
-        </Button>
-      </div> */}
-
       <div className="flex flex-col justify-center gap-4 h-full">
         <Button
           size="sm"
