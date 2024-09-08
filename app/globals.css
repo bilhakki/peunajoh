@@ -71,6 +71,6 @@
   }
 }
 
-p {
+p, li {
   @apply text-justify;
 }
