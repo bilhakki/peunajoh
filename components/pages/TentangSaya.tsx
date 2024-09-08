@@ -13,6 +13,9 @@ import { Label } from "../ui/label";
 import { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { usePage } from "@/hooks/usePage";
+import { createParticipantAction } from "@/lib/actions/participants";
+import { useFingerprint } from "@/hooks/useFingerprint";
+import { useDebounce } from "use-debounce";
 
 const defaultFormValues: (string | null)[] = [
   "Laki-laki",
@@ -27,8 +30,10 @@ const defaultFormValues: (string | null)[] = [
 
 export default function TentangSaya() {
   const { setPage } = usePage((state) => state);
+  const visitorId = useFingerprint((state) => state.visitorId);
 
   const [form, setForm] = useState<(string | null)[]>(defaultFormValues);
+  const [debouncedForm] = useDebounce(form, 1000);
 
   useEffect(() => {
     const tetangSayaLS = localStorage.getItem("tentang-saya");
@@ -43,6 +48,24 @@ export default function TentangSaya() {
     localStorage.setItem("tentang-saya", JSON.stringify(newForm));
     setForm(newForm);
   }
+
+  useEffect(() => {
+    if (debouncedForm) {
+      updateDatabaseData({ data: debouncedForm });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [debouncedForm]);
+
+  async function updateDatabaseData({ data }: { data: (string | null)[] }) {
+    if (visitorId) {
+      await createParticipantAction({
+        id: visitorId,
+        visitorId: visitorId,
+        data: JSON.stringify(data),
+      });
+    }
+  }
+
   return (
     <div className="flex flex-col gap-2 w-full h-full p-4 pb-0">
       <div className="bg-white flex-1 rounded-lg text-sm p-4 pb-0 overflow-y-auto">
