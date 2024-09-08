@@ -1,6 +1,7 @@
 import { create } from "zustand";
 
 export type Page =
+  | "about-us"
   | "on-boarding"
   | "home"
   | "porsi-makan"
