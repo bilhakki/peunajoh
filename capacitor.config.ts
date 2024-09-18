@@ -1,14 +1,15 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from "@capacitor/cli";
 
 const config: CapacitorConfig = {
-  appId: 'com.peunajoh.id',
-  appName: 'peunajoh',
-  webDir: 'out',
-  "bundledWebRuntime": false,
-  server: {
-    url: 'http://172.17.224.1:3000',
-    cleartext: true,
-  },
+  appId: "com.peunajoh.id",
+  appName: "Peunajoh",
+  webDir: "out",
+  // bundledWebRuntime: false,
+  // server: {
+  //   // url: "https://peunajoh.vercel.app/v1/app",
+  //   url: "http://172.30.96.1:3000/v1/app",
+  //   cleartext: true,
+  // },
 };
 
 export default config;

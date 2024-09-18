@@ -53,6 +53,7 @@ export const ContentBuilder = () => {
     if (!!!alreadyOnBoarding) {
       setPage("on-boarding");
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   switch (page) {

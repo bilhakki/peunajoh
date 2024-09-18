@@ -8,14 +8,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import tentangSaya, { Question } from "@/const/tentang-saya";
+import { useFingerprint } from "@/hooks/useFingerprint";
+import { usePage } from "@/hooks/usePage";
+import { useEffect, useState } from "react";
+import { useDebounce } from "use-debounce";
+import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 import { Label } from "../ui/label";
-import { useEffect, useState } from "react";
-import { Button } from "../ui/button";
-import { usePage } from "@/hooks/usePage";
-import { createParticipantAction } from "@/lib/actions/participants";
-import { useFingerprint } from "@/hooks/useFingerprint";
-import { useDebounce } from "use-debounce";
+import config from "@/const/config";
 
 const defaultFormValues: (string | null)[] = [
   "Laki-laki",
@@ -58,11 +58,17 @@ export default function TentangSaya() {
 
   async function updateDatabaseData({ data }: { data: (string | null)[] }) {
     if (visitorId) {
-      await createParticipantAction({
-        id: visitorId,
-        visitorId: visitorId,
-        data: JSON.stringify(data),
-      });
+      await fetch(`${config.PUBLIC_API_URL}/api/participants`, {
+        method: "POST",
+        body: JSON.stringify({
+          id: visitorId,
+          visitorId: visitorId,
+          data: JSON.stringify(data),
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })
     }
   }
 

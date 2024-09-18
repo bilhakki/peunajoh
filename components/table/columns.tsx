@@ -1,6 +1,6 @@
 import { ColumnDef } from "@tanstack/react-table";
 
-import { TParticipant } from "@/app/page";
+import { TParticipant } from "@/app/participants/page";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -12,7 +12,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { DotsHorizontalIcon } from "@radix-ui/react-icons";
-import { deleteParticipantAction } from "@/lib/actions/participants";
+import config from "@/const/config";
 
 export const columns: ColumnDef<TParticipant>[] = [
   {
@@ -97,11 +97,28 @@ export const columns: ColumnDef<TParticipant>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuItem
               onClick={async () => {
-                const confirmation = confirm("Are you sure you want to delete?");
+                const confirmation = confirm(
+                  "Are you sure you want to delete?"
+                );
                 if (confirmation) {
-                  console.log('participant.id', participant)
-                  await deleteParticipantAction(participant.id);
-                  location.reload();
+                  console.log("participant.id", participant);
+                  try {
+                    await fetch(
+                      `${config.PUBLIC_API_URL}/api/participants`,
+                      {
+                        method: "DELETE",
+                        body: JSON.stringify({
+                          id: participant.id,
+                        }),
+                        headers: {
+                          "Content-Type": "application/json",
+                        },
+                      }
+                    );
+                    location.reload();
+                  } catch (error) {
+                    console.error(error);
+                  }
                 }
               }}
             >
