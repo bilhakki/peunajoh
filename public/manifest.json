@@ -1,8 +1,8 @@
 {
   "name": "Peunajoh",
   "short_name": "peunajoh",
-  "theme_color": "#35155D",
-  "background_color": "#ffffff",
+  "theme_color": "#fff",
+  "background_color": "#a1c4fd",
   "display": "standalone",
   "orientation": "portrait",
   "scope": "/",
